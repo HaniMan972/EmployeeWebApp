@@ -1,0 +1,38 @@
+﻿@model LoginViewModel
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.LabelFor(m => m.Email)</td>
+            <td>@Html.TextBoxFor(m => m.Email)</td>
+            <td>@Html.ValidationMessageFor(m => m.Email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Password)</td>
+            <td>@Html.ValidationMessageFor(m => m.Password)</td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+            <td align="center">
+                <p>Don't have an account? <a href="@Url.Action("Register", "Account")">Register</a></p>
+            </td>
+        </tr>
+    </table>
+}
+    @if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+    </div>
+}

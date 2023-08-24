@@ -1,0 +1,30 @@
+﻿@model List<UserViewModel>
+
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Username</td>
+                <td>@user.Email</td>
+                <td>@user.Role</td>
+                <td>
+                    <button class="edit-button" data-user-id="@user.Id">Edit</button>
+                    <button class="delete-button" data-user-id="@user.Id">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="edit-modal" style="display: none;">
+    <!-- Edit user form -->
+</div>
